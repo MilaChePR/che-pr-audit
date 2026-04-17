@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Competitive PR Audit â CHE PR Communications</title>
+  <meta name="description" content="Find out exactly where your company stands in press and media versus your competitors â for free. A personalised written audit by Mila, delivered within 5 business days.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF9F6;
+      --ink: #1A1A18;
+      --ink-mid: #4A4A46;
+      --ink-light: #8A8A84;
+      --ink-faint: #C8C8C0;
+      --border: rgba(26,26,24,0.12);
+      --border-mid: rgba(26,26,24,0.22);
+      --green: #4CAF50;
+      --radius: 10px;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    /* ââ eyebrow ââ */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--ink-faint);
+    }
+
+    /* ââ badge ââ */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      background: white;
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 1.75rem;
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* ââ headline ââ */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 6vw, 46px);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.1rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--ink-mid);
+    }
+
+    .sub {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      max-width: 520px;
+      margin-bottom: 2.25rem;
+    }
+
+    /* ââ deliverables grid ââ */
+    .deliverables {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 2.75rem;
+    }
+    .del {
+      background: white;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+    }
+    .del-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px;
+      font-weight: 400;
+      color: var(--ink-faint);
+      margin-bottom: 5px;
+    }
+    .del-label {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: var(--ink);
+    }
+    .del-desc {
+      font-size: 12px;
+      color: var(--ink-light);
+      line-height: 1.55;
+    }
+
+    /* ââ divider ââ */
+    hr {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      margin: 2.25rem 0;
+    }
+
+    /* ââ form header ââ */
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+    .form-note {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ââ section tag ââ */
+    .section-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 1.75rem 0 0.85rem;
+    }
+
+    /* ââ fields ââ */
+    .field { margin-bottom: 1.1rem; }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 7px;
+    }
+    label .opt {
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink-faint);
+      margin-left: 4px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: white;
+      border: 0.5px solid var(--border-mid);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--ink-mid);
+    }
+    input::placeholder, textarea::placeholder {
+      color: var(--ink-faint);
+    }
+    select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8A84' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    textarea { height: 88px; resize: none; line-height: 1.6; }
+
+    .hint {
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    /* ââ submit ââ */
+    .submit-wrap { margin-top: 2rem; }
+    button[type="submit"] {
+      width: 100%;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      border-radius: 8px;
+      padding: 14px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.15s;
+    }
+    button[type="submit"]:hover { opacity: 0.82; }
+
+    .submit-note {
+      font-size: 12px;
+      color: var(--ink-faint);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ââ thank you state ââ */
+    #ty {
+      display: none;
+      padding: 4rem 0 2rem;
+      text-align: center;
+    }
+    .ty-icon {
+      width: 52px;
+      height: 52px;
+      border: 0.5px solid var(--border-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      font-size: 22px;
+      color: var(--ink-mid);
+    }
+    .ty-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 1.1rem;
+    }
+    .ty-headline em { font-style: italic; color: var(--ink-mid); }
+    .ty-body {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 400px;
+      margin: 0 auto 2.25rem;
+    }
+    .ty-email {
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .ty-email:hover { text-decoration: underline; }
+    .ty-divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      max-width: 280px;
+      margin: 0 auto 2rem;
+    }
+    .ty-cta-label {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1rem;
+    }
+    .ty-book {
+      display: inline-block;
+      border: 0.5px solid var(--border-mid);
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .ty-book:hover { background: white; }
+
+    @media (max-width: 500px) {
+      .deliverables, .row { grid-template-columns: 1fr; }
+      .page { padding: 2.5rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ââ form view ââ -->
+  <div id="form-view">
+
+    <p class="eyebrow">CHE PR Communications</p>
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      3 audits given out per week â spaces fill fast
+    </div>
+
+    <h1>See exactly where your<br>brand stands <em>against</em><br>your competition in media.</h1>
+
+    <p class="sub">A personalised written audit where Mila reviews your company and your 2 closest competitors, and delivers a clear read on who's winning the media narrative and why.</p>
+
+    <div class="deliverables">
+      <div class="del">
+        <div class="del-num">01</div>
+        <div class="del-label">Coverage comparison</div>
+        <div class="del-desc">Your press volume and outlet tier vs. competitors, side by side</div>
+      </div>
+      <div class="del">
+        <div class="del-num">02</div>
+        <div class="del-label">Narrative gap</div>
+        <div class="del-desc">What competitors are saying that's landing â and what you're missing</div>
+      </div>
+      <div class="del">
+        <div class="del-num">03</div>
+        <div class="del-label">One owned angle</div>
+        <div class="del-desc">A specific story you could own right now that no one's claiming</div>
+      </div>
+      <div class="del">
+        <div class="del-num">04</div>
+        <div class="del-label">Readiness score</div>
+        <div class="del-desc">Quick pass/fail: spokesperson, press page, news hooks, quote bank</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2 class="form-title">Apply for your free competitive audit</h2>
+    <p class="form-note">Reviewed and written personally by Mila. Three given out each week. If spaces are full, you'll be added to the waitlist and notified when a slot opens.</p>
+
+    <!-- Netlify Forms: name="audit-application" tells Netlify to capture this form -->
+    <form
+      name="audit-application"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      onsubmit="handleSubmit(event)"
+    >
+      <!-- honeypot spam trap â hidden from humans -->
+      <input type="hidden" name="form-name" value="audit-application">
+      <p style="display:none;"><input name="bot-field"></p>
+
+      <p class="section-tag">About you</p>
+
+      <div class="row">
+        <div class="field">
+          <label for="first-name">First name *</label>
+          <input type="text" id="first-name" name="first-name" placeholder="Sofia" required>
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="sofia@company.com" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="company">Company *</label>
+          <input type="text" id="company" name="company" placeholder="Your company" required>
+        </div>
+        <div class="field">
+          <label for="stage">Stage *</label>
+          <select id="stage" name="stage" required>
+            <option value="" disabled selected>Select stage</option>
+            <option>Pre-seed</option>
+            <option>Seed</option>
+            <option>Series A</option>
+            <option>Series B</option>
+            <option>Series C+</option>
+            <option>Scale-up</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="website">Company website <span class="opt">optional</span></label>
+        <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+      </div>
+
+      <p class="section-tag">Your competitors</p>
+
+      <div class="row">
+        <div class="field">
+          <label for="competitor-1">Competitor 1 <span class="opt">optional</span></label>
+          <input type="text" id="competitor-1" name="competitor-1" placeholder="Company name or URL">
+        </div>
+        <div class="field">
+          <label for="competitor-2">Competitor 2 <span class="opt">optional</span></label>
+          <input type="text" id="competitor-2" name="competitor-2" placeholder="Company name or URL">
+        </div>
+      </div>
+      <p class="hint">The companies your buyers compare you to. If left blank, Mila will identify relevant competitors from your space.</p>
+
+      <p class="section-tag">Context</p>
+
+      <div class="field">
+        <label for="challenge">Where do you feel behind? *</label>
+        <select id="challenge" name="challenge" required>
+          <option value="" disabled selected>Select the closest</option>
+          <option>They have press coverage and we don't</option>
+          <option>We're in the same outlets but they get better placement</option>
+          <option>Their narrative is cleaner and more consistent than ours</option>
+          <option>They have a recognisable spokesperson and we don't</option>
+          <option>Not sure â I just know something's off</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="context">Anything else useful to know? <span class="opt">optional</span></label>
+        <textarea id="context" name="context" placeholder="Upcoming announcements, past coverage, anything that adds contextâ¦"></textarea>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit">Apply for your free audit â</button>
+        <p class="submit-note">No pitch. No sales call. Delivered as a written one-pager within 5 business days.</p>
+      </div>
+    </form>
+
+  </div>
+
+  <!-- ââ thank you view ââ -->
+  <div id="ty">
+    <div class="ty-icon">â</div>
+    <h2 class="ty-headline">Application received.<br><em>We'll be in touch soon.</em></h2>
+    <p class="ty-body">
+      Mila reviews every application personally and will be in touch within 5 business days. If you have any questions in the meantime, reach out directly at
+      <a href="mailto:mila@cheprcommunications.com" class="ty-email">mila@cheprcommunications.com</a>
+    </p>
+    <hr class="ty-divider">
+    <p class="ty-cta-label">Prefer to chat sooner?</p>
+    <a href="https://calendly.com/milachepr/fast-and-furious-quick-chat" class="ty-book" target="_blank" rel="noopener">Book a call with Mila â</a>
+  </div>
+
+</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('ty').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+    .catch(() => {
+      // fallback â still show thank you even if fetch fails
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('ty').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+
+</body>
+</html>
